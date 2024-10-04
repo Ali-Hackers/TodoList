@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-// hello from Hamza
+
 
 const ToDoList = () => {
   const [tasks, setTasks] = useState([]); 
