@@ -36,3 +36,175 @@
     transform: rotate(360deg);
   }
 }
+
+/* General Reset and Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #046af3, #ffb703,#ffff);
+    animation: gradientShift 1s infinite alternate;
+}
+
+@keyframes gradientShift {
+    0% { background-position: left; }
+    100% { background-position: right; }
+}
+
+.app-container {
+    width: 100%;
+    background: linear-gradient(135deg, #046af3, #ffb703,#ffff);
+    max-width: 400px;
+    margin-top: -20%;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    transform: rotate(700deg);
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out infinite;
+}
+
+.app-container:hover {
+    transform: scale(1.05);
+    background: linear-gradient(175deg, #046af3, #ffb703,#ffff);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 1);
+}
+
+.header {
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#new-task {
+    flex: 1;
+    padding: 10px;
+    background: linear-gradient(175deg,white,#ffff);
+    border: 2px solid #046af3;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#new-task:focus {
+    border-color: #ffb703;
+    box-shadow: 0 0 8px rgba(255, 183, 3, 0.5);
+}
+
+#add-task-btn {
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #046af3;
+    color: white;
+    border: none;
+    content:yes;
+    background: linear-gradient(185deg, #046af3, #ffb703,#ffff);
+    border-radius: 20%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transform: rotate(180deg);
+    margin-left: 10px;
+    transition: background-color 0.10s ease, transform 0.10s ease;
+}
+
+#add-task-btn:hover {
+    background-color: #ffb703;
+    transform: rotate(0deg);
+    content: add;
+}
+
+.task-list {
+    list-style-type: none;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: linear-gradient(175deg, black,#ffff);
+color: white;
+    /* background-color: #f8f9fa; */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task-item span {
+    flex: 1;
+    padding-right: 10px;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.task-item:hover span {
+    transform: scale(1.05);
+}
+
+.delete-btn {
+    background-color: transparent;
+    /* border: 1px solid red;s */
+    border: none;
+    padding-bottom:2px;
+    background-color: #c6cbd1;
+    color: #ff6b6b;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    background: linear-gradient(135deg, #046af3, green,black);
+    padding-left: 6px ;
+    padding-right: 3px;
+}
+
+.delete-btn:hover {
+    color: #ff4757;
+}
+
+
+.app-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(4, 106, 243, 0.2), transparent);
+    z-index: 0;
+    animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }    50% {
+        transform: scale(1.2);
+    }
+}
